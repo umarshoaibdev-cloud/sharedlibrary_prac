@@ -12,3 +12,8 @@ def deployToTomcat(job_name,ip_address,context)
 {
   sh "scp /var/lib/jenkins/workspace/${job_name}/webapp/target/webapp.war  ubuntu@${ip_address}:/var/lib/tomcat10/webapps/${context}.war"
 }
+
+def runSelenium(job_name)
+{
+  sh "java -jar /var/lib/jenkins/workspace/${job_name}/testing.jar"
+}
